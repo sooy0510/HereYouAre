@@ -24,6 +24,16 @@ public class RequestHttpURLConnection extends AsyncTask<String, Void, String> { 
     ArrayList<HashMap> jsonList = new ArrayList<>(); //return 해줄 열차 정보들
 
     @Override
+    protected void onPostExecute(String result) {
+        super.onPostExecute(result);
+
+        //mTextViewResult.setText(result);
+        Log.d("connection", "POST response  - " + result);
+    }
+
+
+
+    @Override
     protected String doInBackground(String... params) {
         URL url = null;
         try {
