@@ -17,10 +17,10 @@
 		android:layout_width="150dp"
 		android:layout_height="wrap_content"/>
 
-	<TextView 
+	<TextView
 		android:id="@+id/asc_title"
-		android:layout_width="fill_parent" 
-		android:layout_height="fill_parent" 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
 		android:gravity="center_vertical"
 		android:paddingLeft="5dip"
 		android:paddingRight="10dip"
@@ -35,6 +35,6 @@
 		android:paddingLeft="5dip"
 		android:paddingRight="10dip"
 		android:text="Chart"
-		android:textColor="#ffd6d1"/>
+		android:textColor="#fff"/>
 
 </LinearLayout>

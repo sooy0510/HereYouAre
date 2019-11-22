@@ -33,12 +33,12 @@ public class ExampleActivity extends Activity {
 
 		setContentView(R.layout.main);
 
-		ActionItem nextItem 	= new ActionItem(ID_DOWN, "Next", getResources().getDrawable(R.drawable.menu_down_arrow));
-		ActionItem prevItem 	= new ActionItem(ID_UP, "Prev", getResources().getDrawable(R.drawable.menu_up_arrow));
-        ActionItem searchItem 	= new ActionItem(ID_SEARCH, "Find", getResources().getDrawable(R.drawable.menu_search));
-        ActionItem infoItem 	= new ActionItem(ID_INFO, "Info", getResources().getDrawable(R.drawable.menu_info));
-        ActionItem eraseItem 	= new ActionItem(ID_ERASE, "Clear", getResources().getDrawable(R.drawable.menu_eraser));
-        ActionItem okItem 		= new ActionItem(ID_OK, "OK", getResources().getDrawable(R.drawable.menu_ok));
+		ActionItem nextItem 	= new ActionItem(ID_DOWN, "Next", "Next", getResources().getDrawable(R.drawable.menu_down_arrow));
+		ActionItem prevItem 	= new ActionItem(ID_UP, "Prev","Prev", getResources().getDrawable(R.drawable.menu_up_arrow));
+        ActionItem searchItem 	= new ActionItem(ID_SEARCH, "Find","Find", getResources().getDrawable(R.drawable.menu_search));
+        ActionItem infoItem 	= new ActionItem(ID_INFO, "Info","Info", getResources().getDrawable(R.drawable.menu_info));
+        ActionItem eraseItem 	= new ActionItem(ID_ERASE, "Clear","Clear", getResources().getDrawable(R.drawable.menu_eraser));
+        ActionItem okItem 		= new ActionItem(ID_OK, "OK","OK", getResources().getDrawable(R.drawable.menu_ok));
         
         //use setSticky(true) to disable QuickAction dialog being dismissed after an item is clicked
         prevItem.setSticky(true);
@@ -68,7 +68,7 @@ public class ExampleActivity extends Activity {
 				} else if (actionId == ID_INFO) {
 					Toast.makeText(getApplicationContext(), "I have no info this time", Toast.LENGTH_SHORT).show();
 				} else {
-					Toast.makeText(getApplicationContext(), actionItem.getTitle() + " selected", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), actionItem.getAsc_title()+ " selected", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});

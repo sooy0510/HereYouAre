@@ -19,12 +19,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class RequestHttpURLConnection extends AsyncTask<String, Void, String> { //시작파라미터, 진행상태, 리턴타입
+public class RequestHttpURLConnection extends AsyncTask<String, Void, ArrayList<HashMap>> { //시작파라미터, 진행상태, 리턴타입
 
     ArrayList<HashMap> jsonList = new ArrayList<>(); //return 해줄 열차 정보들
 
     @Override
-    protected void onPostExecute(String result) {
+    protected void onPostExecute(ArrayList<HashMap> result) {
         super.onPostExecute(result);
 
         //mTextViewResult.setText(result);
@@ -34,7 +34,7 @@ public class RequestHttpURLConnection extends AsyncTask<String, Void, String> { 
 
 
     @Override
-    protected String doInBackground(String... params) {
+    protected ArrayList<HashMap> doInBackground(String... params) {
         URL url = null;
         try {
             String station = params[0];
@@ -73,12 +73,13 @@ public class RequestHttpURLConnection extends AsyncTask<String, Void, String> { 
                 // tmap server에서 받아온 경로탐색 json파일 parsing
                 JSONObject jsonObject = readJsonFromUrl(conn);
                 Log.d("connection", jsonObject.toString());
-                //jsonList = jsonListParser(jsonObject, startPoint, endPoint);
+                jsonList = jsonListParser(jsonObject);
+                Log.d("connection", jsonList.toString());
 
                 // 닫기
                 os.close();
                 //return jsonList;
-                return "ss";
+                return jsonList;
 
             } catch (
                     MalformedURLException e) {
@@ -107,7 +108,7 @@ public class RequestHttpURLConnection extends AsyncTask<String, Void, String> { 
 
 
 
-    // tmap api server에서 경로탐색 결과 받기
+    // django server에서 데이터 받기
     public static JSONObject readJsonFromUrl(HttpURLConnection conn) throws IOException {
         String jsonText = "";
         BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
@@ -117,7 +118,6 @@ public class RequestHttpURLConnection extends AsyncTask<String, Void, String> { 
 
         String line = null;
         while ((line = br.readLine()) != null) {
-            //System.out.println(line);
             jsonText += line;
         }
         // json 파일로 변환
@@ -133,37 +133,48 @@ public class RequestHttpURLConnection extends AsyncTask<String, Void, String> { 
     }
 
 
-//    public ArrayList<HashMap> jsonListParser(JSONObject jsonObject, ViaPointVO startPoint, ViaPointVO endPoint) {
-//
-//        String totalDistance;
-//        String totalTime;
-//
-//        ArrayList<HashMap> objList = new ArrayList<>();
-//        try {
-//            HashMap start = new HashMap();
-//            start.put("longitude", startPoint.getViaX());
-//            start.put("latitude", startPoint.getViaY());
-//            objList.add(start);
-//
-//
-//            HashMap map = new HashMap();
-//            JSONObject jObject = jsonObject.getJSONArray("features").getJSONObject(0);
-//            JSONObject jProperties = jObject.getJSONObject("properties");
-//
-//            totalDistance = jProperties.optString("totalDistance");
-//            totalTime = jProperties.optString("totalTime");
-//
+    public ArrayList<HashMap> jsonListParser(JSONObject jsonObject) {
+
+        String ascTitle;
+        String descTitle;
+        String seat1;
+        String seat2;
+
+        ArrayList<HashMap> objList = new ArrayList<>();
+        try {
+            HashMap train = new HashMap();
+            JSONArray trainLineNm = jsonObject.getJSONArray("trainLineNm");
+            JSONArray empty_seat = jsonObject.getJSONArray("empty_seat");
+
+
+            Log.d("connection", trainLineNm.toString());
+            Log.d("connection", empty_seat.toString());
+
+            ascTitle = trainLineNm.get(0).toString();
+            descTitle = trainLineNm.get(2).toString();
+            seat1 = empty_seat.get(0).toString();
+            seat2 = empty_seat.get(2).toString();
+
+//            Log.d("connection", ascTitle);
+//            Log.d("connection", descTitle);
+//            Log.d("connection", seat1);
+//            Log.d("connection", seat2);
+
+
+            train.put("ascTitle", ascTitle);
+            train.put("descTitle", descTitle);
+            train.put("seat1", seat1);
+            train.put("seat2", seat2);
 //            map.put("longitude", endPoint.getViaX());
 //            map.put("latitude", endPoint.getViaY());
 //            map.put("totalDistance",totalDistance);
 //            map.put("totalTime",totalTime);
-//            objList.add(map);
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return objList;
-//    }
+            objList.add(train);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return objList;
+    }
 
 
 }

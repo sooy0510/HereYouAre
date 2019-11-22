@@ -3,6 +3,7 @@ package com.example.hereyouare;
 import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -147,7 +148,8 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 	public void addActionItem(ActionItem action) {
 		actionItems.add(action);
 		
-		String title 	= action.getTitle();
+		String asc_title 	= action.getAsc_title();
+		String desc_title 	= action.getDesc_title();
 		Drawable icon 	= action.getIcon();
 		
 		View container;
@@ -169,14 +171,18 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 			img.setVisibility(View.GONE);
 		}
 		
-		if (title != null) {
-			text1.setText(title);
-			text2.setText(title);
+		if (asc_title != null) {
+			text1.setText(asc_title);
 		} else {
 			text1.setVisibility(View.GONE);
+		}
+
+		if (desc_title != null) {
+			text2.setText(desc_title);
+		} else {
 			text2.setVisibility(View.GONE);
 		}
-		
+
 		final int pos 		=  mChildPos;
 		final int actionId 	= action.getActionId();
 		
@@ -188,7 +194,7 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
                 }
 				
                 if (!getActionItem(pos).isSticky()) {  
-                	mDidAction = true;
+                	mDidAction = false;
                 	
                     dismiss();
                 }
@@ -247,6 +253,8 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 		
 		int screenWidth 	= mWindowManager.getDefaultDisplay().getWidth();
 		int screenHeight	= mWindowManager.getDefaultDisplay().getHeight();
+
+		Log.d("item", Integer.toString(screenWidth)+" "+Integer.toString(screenHeight));
 		
 		//automatically get X coord of popup (top left)
 		if ((anchorRect.left + rootWidth) > screenWidth) {

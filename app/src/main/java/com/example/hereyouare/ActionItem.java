@@ -15,7 +15,9 @@ import android.graphics.drawable.Drawable;
 public class ActionItem {
 	private Drawable icon;
 	private Bitmap thumb;
-	private String title;
+	//private String title;
+	private String asc_title;
+	private String desc_title;
 	private int actionId = -1;
     private boolean selected;
     private boolean sticky;
@@ -24,11 +26,13 @@ public class ActionItem {
      * Constructor
      * 
      * @param actionId  Action id for case statements
-     * @param title     Title
+     * @param title1     Title1
+	 * @param title2     Title2
      * @param icon      Icon to use
      */
-    public ActionItem(int actionId, String title, Drawable icon) {
-        this.title = title;
+    public ActionItem(int actionId, String title1, String title2, Drawable icon) {
+        this.asc_title = title1;
+		this.desc_title = title2;
         this.icon = icon;
         this.actionId = actionId;
     }
@@ -37,17 +41,18 @@ public class ActionItem {
      * Constructor
      */
     public ActionItem() {
-        this(-1, null, null);
+        this(-1, null,null, null);
     }
     
     /**
      * Constructor
      * 
      * @param actionId  Action id of the item
-     * @param title     Text to show for the item
+     * @param title1     Text to show for the item
+	 * @param title2     Text to show for the item
      */
-    public ActionItem(int actionId, String title) {
-        this(actionId, title, null);
+    public ActionItem(int actionId, String title1, String title2) {
+        this(actionId, title1, title2, null);
     }
     
     /**
@@ -56,7 +61,7 @@ public class ActionItem {
      * @param icon {@link Drawable} action icon
      */
     public ActionItem(Drawable icon) {
-        this(-1, null, icon);
+        this(-1, null, null, icon);
     }
     
     /**
@@ -66,7 +71,7 @@ public class ActionItem {
      * @param icon      {@link Drawable} action icon
      */
     public ActionItem(int actionId, Drawable icon) {
-        this(actionId, null, icon);
+        this(actionId, null,null, icon);
     }
 	
 	/**
@@ -74,8 +79,12 @@ public class ActionItem {
 	 * 
 	 * @param title action title
 	 */
-	public void setTitle(String title) {
-		this.title = title;
+	public void setAsc_title(String title) {
+		this.asc_title = title;
+	}
+
+	public void setDesc_title(String title) {
+		this.desc_title = title;
 	}
 	
 	/**
@@ -83,8 +92,12 @@ public class ActionItem {
 	 * 
 	 * @return action title
 	 */
-	public String getTitle() {
-		return this.title;
+	public String getAsc_title() {
+		return this.asc_title;
+	}
+
+	public String getDesc_title() {
+		return this.desc_title;
 	}
 	
 	/**
