@@ -1,5 +1,6 @@
 package com.example.hereyouare;
 
+import android.os.AsyncTask;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -18,14 +19,16 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class RequestHttpURLConnection {
-    ArrayList<HashMap> jsonList = new ArrayList<>(); //return 해줄 route 정보들
+public class RequestHttpURLConnection extends AsyncTask<String, Void, String> { //시작파라미터, 진행상태, 리턴타입
 
-    public static String setConn(String station) {
-        // tmap api server 연결
+    ArrayList<HashMap> jsonList = new ArrayList<>(); //return 해줄 열차 정보들
+
+    @Override
+    protected String doInBackground(String... params) {
         URL url = null;
         try {
-            url = new URL("http://127.0.0.1:8000/webserver/"+station+"/station_status");
+            String station = params[0];
+            url = new URL("http://70.12.115.72:8002/webserver/"+station+"/station_status");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setDoInput(true);
@@ -35,6 +38,7 @@ public class RequestHttpURLConnection {
             conn.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
 
             String body = "station="+station;
+            Log.d("connection","station:"+station);
 
             // 전송
             OutputStream os = conn.getOutputStream();
@@ -58,7 +62,7 @@ public class RequestHttpURLConnection {
 
                 // tmap server에서 받아온 경로탐색 json파일 parsing
                 JSONObject jsonObject = readJsonFromUrl(conn);
-                Log.d("dddd", jsonObject.toString());
+                Log.d("connection", jsonObject.toString());
                 //jsonList = jsonListParser(jsonObject, startPoint, endPoint);
 
                 // 닫기
