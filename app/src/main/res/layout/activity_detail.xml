@@ -41,7 +41,9 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_weight="20"
-            android:background="@color/bggray">
+            android:background="@color/bggray"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="1dp">
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
@@ -53,7 +55,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="80"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -82,7 +85,8 @@
                         android:layout_height="wrap_content"
                         android:text="9/10"
                         android:textSize="20dp"
-                        android:layout_weight="30">
+                        android:layout_weight="30"
+                        android:layout_marginLeft="10dp">
                     </TextView>
                     <TextView
                         android:id="@+id/ascArrive1"
@@ -90,7 +94,8 @@
                         android:layout_height="wrap_content"
                         android:text="1개 역전"
                         android:textSize="20dp"
-                        android:layout_weight="40">
+                        android:layout_weight="40"
+                        android:layout_marginLeft="10dp">
                     </TextView>
                 </LinearLayout>
             </LinearLayout>
@@ -122,7 +127,8 @@
                         android:layout_height="wrap_content"
                         android:text="9/10"
                         android:textSize="20dp"
-                        android:layout_weight="30">
+                        android:layout_weight="30"
+                        android:layout_marginLeft="10dp">
                     </TextView>
                     <TextView
                         android:id="@+id/ascArrive2"
@@ -130,7 +136,8 @@
                         android:layout_height="wrap_content"
                         android:text="1개 역전"
                         android:textSize="20dp"
-                        android:layout_weight="40">
+                        android:layout_weight="40"
+                        android:layout_marginLeft="10dp">
                     </TextView>
                 </LinearLayout>
             </LinearLayout>
@@ -159,7 +166,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="80"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -188,7 +196,8 @@
                         android:layout_height="wrap_content"
                         android:text="9/10"
                         android:textSize="20dp"
-                        android:layout_weight="30">
+                        android:layout_weight="30"
+                        android:layout_marginLeft="10dp">
                     </TextView>
                     <TextView
                         android:id="@+id/descArrive1"
@@ -196,7 +205,8 @@
                         android:layout_height="wrap_content"
                         android:text="1개 역전"
                         android:textSize="20dp"
-                        android:layout_weight="40">
+                        android:layout_weight="40"
+                        android:layout_marginLeft="10dp">
                     </TextView>
                 </LinearLayout>
             </LinearLayout>
@@ -228,7 +238,8 @@
                         android:layout_height="wrap_content"
                         android:text="9/10"
                         android:textSize="20dp"
-                        android:layout_weight="30">
+                        android:layout_weight="30"
+                        android:layout_marginLeft="10dp">
                     </TextView>
                     <TextView
                         android:id="@+id/descArrive2"
@@ -236,7 +247,8 @@
                         android:layout_height="wrap_content"
                         android:text="1개 역전"
                         android:textSize="20dp"
-                        android:layout_weight="40">
+                        android:layout_weight="40"
+                        android:layout_marginLeft="10dp">
                     </TextView>
                 </LinearLayout>
             </LinearLayout>

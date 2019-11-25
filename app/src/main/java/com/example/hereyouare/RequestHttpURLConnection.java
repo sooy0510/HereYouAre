@@ -207,10 +207,16 @@ public class RequestHttpURLConnection extends AsyncTask<String, Void, ArrayList<
         try {
             HashMap train = new HashMap();
 
-            JSONArray asc_train1 = jsonObject.getJSONObject("empty_seat_status").getJSONObject("up").getJSONObject("trains").getJSONArray("train1");
-            JSONArray asc_train2 = jsonObject.getJSONObject("empty_seat_status").getJSONObject("up").getJSONObject("trains").getJSONArray("train2");
-            JSONArray desc_train1 = jsonObject.getJSONObject("empty_seat_status").getJSONObject("down").getJSONObject("trains").getJSONArray("train1");
-            JSONArray desc_train2 = jsonObject.getJSONObject("empty_seat_status").getJSONObject("down").getJSONObject("trains").getJSONArray("train2");
+            JSONArray asc_train1 = jsonObject.getJSONArray("trains").getJSONArray(0);
+            JSONArray asc_train2 = jsonObject.getJSONArray("trains").getJSONArray(1);
+            JSONArray desc_train1 = jsonObject.getJSONArray("trains").getJSONArray(2);
+            JSONArray desc_train2 = jsonObject.getJSONArray("trains").getJSONArray(3);
+
+            JSONObject empty_asc_seats = jsonObject.getJSONObject("empty_seat_status").getJSONObject("up");
+            JSONObject empty_desc_seats = jsonObject.getJSONObject("empty_seat_status").getJSONObject("down");
+
+            Log.d("connection", empty_asc_seats.toString());
+            Log.d("connection", empty_desc_seats.toString());
 
 //            JSONObject asc_train1 = jsonObject.getJSONObject("up").getJSONArray("train").getJSONObject(0);
 //            JSONObject asc_train2 = jsonObject.getJSONObject("up").getJSONArray("train").getJSONObject(1);
