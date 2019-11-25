@@ -38,7 +38,12 @@ public class RequestHttpURLConnection extends AsyncTask<String, Void, ArrayList<
         URL url = null;
         try {
             String station = params[0];
-            url = new URL("http://70.12.115.72:8002/webserver/"+station+"/station_status");
+            String actNum = params[1];
+            if(actNum.equals("a1")){
+                url = new URL("http://70.12.115.72:8002/webserver/"+station+"/station_status");
+            }else if(actNum.equals("a2")){
+                url = new URL("http://70.12.115.72:8002/webserver/"+station+"/station_status_detail");
+            }
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setDoInput(true);
@@ -73,8 +78,16 @@ public class RequestHttpURLConnection extends AsyncTask<String, Void, ArrayList<
                 // tmap server에서 받아온 경로탐색 json파일 parsing
                 JSONObject jsonObject = readJsonFromUrl(conn);
                 Log.d("connection", jsonObject.toString());
-                jsonList = jsonListParser(jsonObject);
-                Log.d("connection", jsonList.toString());
+
+
+                if(actNum.equals("a1")){
+                    jsonList = jsonListParser1(jsonObject);
+                    Log.d("connection", jsonList.toString());
+                }else if(actNum.equals("a2")){
+                    //jsonList = jsonListParser2(jsonObject);
+                    jsonListParser2(jsonObject);
+                    //Log.d("connection", jsonList.toString());
+                }
 
                 // 닫기
                 os.close();
@@ -133,7 +146,7 @@ public class RequestHttpURLConnection extends AsyncTask<String, Void, ArrayList<
     }
 
 
-    public ArrayList<HashMap> jsonListParser(JSONObject jsonObject) {
+    public ArrayList<HashMap> jsonListParser1(JSONObject jsonObject) {
 
         String ascTitle;
         String descTitle;
@@ -165,15 +178,74 @@ public class RequestHttpURLConnection extends AsyncTask<String, Void, ArrayList<
             train.put("descTitle", descTitle);
             train.put("seat1", seat1);
             train.put("seat2", seat2);
-//            map.put("longitude", endPoint.getViaX());
-//            map.put("latitude", endPoint.getViaY());
-//            map.put("totalDistance",totalDistance);
-//            map.put("totalTime",totalTime);
             objList.add(train);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return objList;
+    }
+
+    //public ArrayList<HashMap> jsonListParser2(JSONObject jsonObject) {
+    public void jsonListParser2(JSONObject jsonObject) {
+
+        String ascTitle1;
+        String ascTitle2;
+        String descTitle1;
+        String descTitle2;
+
+        String ascSeat1;
+        String ascSeat2;
+        String descSeat1;
+        String descSeat2;
+
+        String ascArrive1;
+        String ascArrive2;
+        String descArrive1;
+        String descArrive2;
+
+        ArrayList<HashMap> objList = new ArrayList<>();
+        try {
+            HashMap train = new HashMap();
+
+            JSONArray asc_train1 = jsonObject.getJSONObject("empty_seat_status").getJSONObject("up").getJSONObject("trains").getJSONArray("train1");
+            JSONArray asc_train2 = jsonObject.getJSONObject("empty_seat_status").getJSONObject("up").getJSONObject("trains").getJSONArray("train2");
+            JSONArray desc_train1 = jsonObject.getJSONObject("empty_seat_status").getJSONObject("down").getJSONObject("trains").getJSONArray("train1");
+            JSONArray desc_train2 = jsonObject.getJSONObject("empty_seat_status").getJSONObject("down").getJSONObject("trains").getJSONArray("train2");
+
+//            JSONObject asc_train1 = jsonObject.getJSONObject("up").getJSONArray("train").getJSONObject(0);
+//            JSONObject asc_train2 = jsonObject.getJSONObject("up").getJSONArray("train").getJSONObject(1);
+//
+//            JSONObject desc_train1 = jsonObject.getJSONObject("down").getJSONArray("train").getJSONObject(0);
+//            JSONObject desc_train2 = jsonObject.getJSONObject("down").getJSONArray("train").getJSONObject(1);
+
+//            Log.d("connection", asc_train1.toString());
+//            Log.d("connection", asc_train2.toString());
+//            Log.d("connection", desc_train1.toString());
+//            Log.d("connection", desc_train2.toString());
+
+//            Log.d("connection", trainLineNm.toString());
+//            Log.d("connection", empty_seat_status.toString());
+//
+//            ascTitle = trainLineNm.get(0).toString();
+//            descTitle = trainLineNm.get(1).toString();
+//            seat1 = empty_seat_status.get("up").toString();
+//            seat2 = empty_seat_status.get("down").toString();
+//
+//            Log.d("connection", ascTitle);
+//            Log.d("connection", descTitle);
+//            Log.d("connection", seat1);
+//            Log.d("connection", seat2);
+//
+//
+//            train.put("ascTitle", ascTitle);
+//            train.put("descTitle", descTitle);
+//            train.put("seat1", seat1);
+//            train.put("seat2", seat2);
+            //objList.add(train);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        //return objList;
     }
 
 

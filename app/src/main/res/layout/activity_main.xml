@@ -11,7 +11,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="30"
         android:gravity="center">
         <ImageView
             android:layout_width="100dp"
@@ -22,9 +23,11 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/buttons_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:layout_weight="60"
+        android:gravity="top">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="300dp"
@@ -39,9 +42,154 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="93dp"
+            android:layout_marginEnd="300dp"
+            android:background="@drawable/button"
+            android:padding="20dp">
+        </Button>
+
+        <Button
+            android:id="@+id/s2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="93dp"
+            android:layout_marginEnd="255dp"
+            android:background="@drawable/button"
+            android:padding="20dp">
+        </Button>
+
+        <Button
+            android:id="@+id/s3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="93dp"
+            android:layout_marginEnd="220dp"
+            android:background="@drawable/button"
+            android:padding="20dp">
+        </Button>
+
+        <Button
+            android:id="@+id/s4"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="93dp"
+            android:layout_marginEnd="180dp"
+            android:background="@drawable/button"
+            android:padding="20dp">
+        </Button>
+
+        <Button
+            android:id="@+id/s5"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="93dp"
+            android:layout_marginEnd="135dp"
+            android:background="@drawable/button"
+            android:padding="20dp">
+        </Button>
+
+        <Button
+            android:id="@+id/s6"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="93dp"
+            android:layout_marginEnd="90dp"
+            android:background="@drawable/button"
+            android:padding="20dp">
+        </Button>
+
+        <Button
+            android:id="@+id/s7"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="93dp"
             android:layout_marginEnd="50dp"
             android:background="@drawable/button"
             android:padding="20dp">
         </Button>
+
+        <Button
+            android:id="@+id/s8"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="233dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/button"
+            android:padding="20dp">
+        </Button>
+
+        <Button
+            android:id="@+id/s9"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="233dp"
+            android:layout_marginEnd="100dp"
+            android:background="@drawable/button"
+            android:padding="20dp">
+        </Button>
+
+        <Button
+            android:id="@+id/s10"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="233dp"
+            android:layout_marginEnd="150dp"
+            android:background="@drawable/button"
+            android:padding="20dp">
+        </Button>
+
+        <Button
+            android:id="@+id/s11"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="233dp"
+            android:layout_marginEnd="200dp"
+            android:background="@drawable/button"
+            android:padding="20dp">
+        </Button>
+
+        <Button
+            android:id="@+id/s12"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="233dp"
+            android:layout_marginEnd="245dp"
+            android:background="@drawable/button"
+            android:padding="20dp">
+        </Button>
+
+        <Button
+            android:id="@+id/s13"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="233dp"
+            android:layout_marginEnd="295dp"
+            android:background="@drawable/button"
+            android:padding="20dp">
+        </Button>
+
     </RelativeLayout>
 </LinearLayout>
