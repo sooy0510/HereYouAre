@@ -144,21 +144,21 @@ public class RequestHttpURLConnection extends AsyncTask<String, Void, ArrayList<
         try {
             HashMap train = new HashMap();
             JSONArray trainLineNm = jsonObject.getJSONArray("trainLineNm");
-            JSONArray empty_seat = jsonObject.getJSONArray("empty_seat");
+            JSONObject empty_seat_status = jsonObject.getJSONObject("empty_seat_status");
 
 
             Log.d("connection", trainLineNm.toString());
-            Log.d("connection", empty_seat.toString());
+            Log.d("connection", empty_seat_status.toString());
 
             ascTitle = trainLineNm.get(0).toString();
-            descTitle = trainLineNm.get(2).toString();
-            seat1 = empty_seat.get(0).toString();
-            seat2 = empty_seat.get(2).toString();
+            descTitle = trainLineNm.get(1).toString();
+            seat1 = empty_seat_status.get("up").toString();
+            seat2 = empty_seat_status.get("down").toString();
 
-//            Log.d("connection", ascTitle);
-//            Log.d("connection", descTitle);
-//            Log.d("connection", seat1);
-//            Log.d("connection", seat2);
+            Log.d("connection", ascTitle);
+            Log.d("connection", descTitle);
+            Log.d("connection", seat1);
+            Log.d("connection", seat2);
 
 
             train.put("ascTitle", ascTitle);

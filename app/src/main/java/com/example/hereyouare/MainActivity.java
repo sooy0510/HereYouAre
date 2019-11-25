@@ -3,6 +3,7 @@ package com.example.hereyouare;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -52,40 +53,46 @@ for(View touchable : touchables){
     @Override
     public void onClick(View view) {
 
+        String station = "";
+        ArrayList<HashMap> trainInfo = null;
         // Station 선택
         switch (view.getId()){
             case R.id.s1:
+                station = "미금";
                 btn.setAlpha(1);
-                Toast.makeText(this, "나와랏", Toast.LENGTH_SHORT).show();
-                //ArrayList<HashMap> jsonList = new ArrayList<>(); //return 해줄 route 정보들
+                Toast.makeText(this, station, Toast.LENGTH_SHORT).show();
 
-                String ascTitle;
-                String descTitle;
-                String seat1;
-                String seat2;
                 // Django와 연결
-                try {
-                    RequestHttpURLConnection conn = new RequestHttpURLConnection();
-                    ArrayList<HashMap> trainInfo = conn.execute("미금").get();
-                    Log.d("ggg", trainInfo.toString());
-                    ascTitle = trainInfo.get(0).get("ascTitle").toString();
-                    descTitle = trainInfo.get(0).get("descTitle").toString();
-                    seat1 = trainInfo.get(0).get("seat1").toString();
-                    seat2 = trainInfo.get(0).get("seat2").toString();
-                    addItem(ascTitle, descTitle, seat1, seat2);
-                    quickAction.show(view);
-                    quickAction.setAnimStyle(QuickAction.ANIM_REFLECT);
-
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                urlConnect(station, view);
                 break;
 
         }
 
     }
+
+    public void urlConnect(String station, View view){
+        String ascTitle;
+        String descTitle;
+        String seat1;
+        String seat2;
+
+        RequestHttpURLConnection conn = new RequestHttpURLConnection();
+        try {
+            ArrayList<HashMap> trainInfo = conn.execute(station).get();
+            ascTitle = trainInfo.get(0).get("ascTitle").toString();
+            descTitle = trainInfo.get(0).get("descTitle").toString();
+            seat1 = trainInfo.get(0).get("seat1").toString();
+            seat2 = trainInfo.get(0).get("seat2").toString();
+            addItem(ascTitle, descTitle, seat1, seat2);
+            quickAction.show(view);
+            quickAction.setAnimStyle(QuickAction.ANIM_REFLECT);
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void addItem(String ascTitle, String descTitle, String seat1, String seat2){
         String asc = ascTitle + " : " + seat1 + "석 남음";
@@ -108,7 +115,9 @@ for(View touchable : touchables){
                 if (actionId == ID_SEARCH) {
                     Toast.makeText(getApplicationContext(), "Let's do some search action", Toast.LENGTH_SHORT).show();
                 } else if (actionId == ID_INFO) {
-                    Toast.makeText(getApplicationContext(), "I have no info this time", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "I have no info this time", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), actionItem.getAsc_title() + " selected", Toast.LENGTH_SHORT).show();
                 }

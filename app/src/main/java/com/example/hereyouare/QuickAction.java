@@ -196,7 +196,8 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
                 if (!getActionItem(pos).isSticky()) {  
                 	mDidAction = false;
                 	
-                    dismiss();
+                    //dismiss();
+                    //Log.d("connection", "다른 곳으로 가봅시다");
                 }
 			}
 		});
