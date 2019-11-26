@@ -130,7 +130,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3번칸"
+                android:text="4번칸"
                 android:textSize="25dp">
             </TextView>
         </LinearLayout>
@@ -148,7 +148,7 @@
             </ImageView>
 
             <Button
-                android:id="@+id/c3_s1"
+                android:id="@+id/c4_s1"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
@@ -160,36 +160,12 @@
             </Button>
 
             <Button
-                android:id="@+id/c3_s2"
+                android:id="@+id/c4_s2"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="56dp"
-                android:layout_marginEnd="100dp"
-                android:background="@drawable/green"
-                android:padding="20dp">
-            </Button>
-
-            <Button
-                android:id="@+id/c3_s3"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="100dp"
-                android:layout_marginEnd="197dp"
-                android:background="@drawable/green"
-                android:padding="20dp">
-            </Button>
-
-            <Button
-                android:id="@+id/c3_s4"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="100dp"
                 android:layout_marginEnd="100dp"
                 android:background="@drawable/green"
                 android:padding="20dp">
@@ -212,7 +188,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3번칸"
+                android:text="5번칸"
                 android:textSize="25dp">
             </TextView>
         </LinearLayout>
@@ -230,7 +206,7 @@
             </ImageView>
 
             <Button
-                android:id="@+id/c3_s1"
+                android:id="@+id/c5_s1"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
@@ -242,7 +218,7 @@
             </Button>
 
             <Button
-                android:id="@+id/c3_s2"
+                android:id="@+id/c5_s2"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
@@ -254,7 +230,7 @@
             </Button>
 
             <Button
-                android:id="@+id/c3_s3"
+                android:id="@+id/c5_s3"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
@@ -266,7 +242,7 @@
             </Button>
 
             <Button
-                android:id="@+id/c3_s4"
+                android:id="@+id/c5_s4"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
