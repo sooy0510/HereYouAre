@@ -174,10 +174,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             ArrayList<HashMap> trainInfo = conn.execute(station,"a1").get();
             ascTitle = trainInfo.get(0).get("ascTitle").toString();
+            String[] asc = ascTitle.split("-");
+            String asctitle = asc[0];
+
             descTitle = trainInfo.get(0).get("descTitle").toString();
+            String[] desc = ascTitle.split("-");
+            String desctitle = desc[0];
+
             seat1 = trainInfo.get(0).get("seat1").toString();
             seat2 = trainInfo.get(0).get("seat2").toString();
-            addItem(ascTitle, descTitle, seat1, seat2, station);
+            addItem(asctitle, desctitle, seat1, seat2, station);
             quickAction.show(view);
             quickAction.setAnimStyle(QuickAction.ANIM_REFLECT);
         } catch (ExecutionException e) {
@@ -195,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //역
         final String st = station;
         /* Quick Action */
-        infoItem 	= new ActionItem(ID_INFO, asc, desc, getResources().getDrawable(R.drawable.menu_info));
+        infoItem 	= new ActionItem(ID_INFO, asc, desc, getResources().getDrawable(R.drawable.arrow));
         quickAction = new QuickAction(this, QuickAction.VERTICAL);
 
         //add action items into QuickAction
@@ -212,7 +218,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (actionId == ID_SEARCH) {
                     Toast.makeText(getApplicationContext(), "Let's do some search action", Toast.LENGTH_SHORT).show();
                 } else if (actionId == ID_INFO) {
-                    //Toast.makeText(getApplicationContext(), "I have no info this time", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
                     // intent에 station 넣어주기
                     intent.putExtra("station",st); /*송신*/
@@ -223,12 +228,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        //set listnener for on dismiss event, this listener will be called only if QuickAction dialog was dismissed
-        //by clicking the area outside the dialog.
         quickAction.setOnDismissListener(new QuickAction.OnDismissListener() {
             @Override
             public void onDismiss() {
-                //btn.setAlpha(0);
                 btnInitialize();
             }
         });

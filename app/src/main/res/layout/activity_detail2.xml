@@ -19,17 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="차량번호"
-            android:textSize="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp">
-        </TextView>
-        <TextView
-            android:id="@+id/seatNum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="잔여석"
-            android:textSize="30dp"
-            android:layout_marginBottom="20dp">
+            android:textSize="30dp">
         </TextView>
     </LinearLayout>
 
@@ -65,53 +55,53 @@
                 android:src="@drawable/seats">
             </ImageView>
 
-            <Button
+            <ImageView
                 android:id="@+id/c3_s1"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="65dp"
                 android:layout_marginEnd="197dp"
                 android:background="@drawable/green"
                 android:padding="20dp">
-            </Button>
+            </ImageView>
 
-            <Button
+            <ImageView
                 android:id="@+id/c3_s2"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="65dp"
                 android:layout_marginEnd="100dp"
                 android:background="@drawable/green"
                 android:padding="20dp">
-            </Button>
+            </ImageView>
 
-            <Button
+            <ImageView
                 android:id="@+id/c3_s3"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="109dp"
                 android:layout_marginEnd="197dp"
                 android:background="@drawable/green"
                 android:padding="20dp">
-            </Button>
+            </ImageView>
 
-            <Button
+            <ImageView
                 android:id="@+id/c3_s4"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="109dp"
                 android:layout_marginEnd="100dp"
                 android:background="@drawable/green"
                 android:padding="20dp">
-            </Button>
+            </ImageView>
         </RelativeLayout>
     </LinearLayout>
 
@@ -147,29 +137,29 @@
                 android:src="@drawable/seats">
             </ImageView>
 
-            <Button
+            <ImageView
                 android:id="@+id/c4_s1"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="65dp"
                 android:layout_marginEnd="197dp"
                 android:background="@drawable/green"
                 android:padding="20dp">
-            </Button>
+            </ImageView>
 
-            <Button
+            <ImageView
                 android:id="@+id/c4_s2"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="65dp"
                 android:layout_marginEnd="100dp"
                 android:background="@drawable/green"
                 android:padding="20dp">
-            </Button>
+            </ImageView>
         </RelativeLayout>
     </LinearLayout>
 
@@ -205,53 +195,53 @@
                 android:src="@drawable/seats">
             </ImageView>
 
-            <Button
+            <ImageView
                 android:id="@+id/c5_s1"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="65dp"
                 android:layout_marginEnd="197dp"
                 android:background="@drawable/green"
                 android:padding="20dp">
-            </Button>
+            </ImageView>
 
-            <Button
+            <ImageView
                 android:id="@+id/c5_s2"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="65dp"
                 android:layout_marginEnd="100dp"
                 android:background="@drawable/green"
                 android:padding="20dp">
-            </Button>
+            </ImageView>
 
-            <Button
+            <ImageView
                 android:id="@+id/c5_s3"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="109dp"
                 android:layout_marginEnd="197dp"
                 android:background="@drawable/green"
                 android:padding="20dp">
-            </Button>
+            </ImageView>
 
-            <Button
+            <ImageView
                 android:id="@+id/c5_s4"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="109dp"
                 android:layout_marginEnd="100dp"
                 android:background="@drawable/green"
                 android:padding="20dp">
-            </Button>
+            </ImageView>
         </RelativeLayout>
     </LinearLayout>
 
