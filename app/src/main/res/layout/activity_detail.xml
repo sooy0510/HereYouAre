@@ -10,8 +10,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="50"
+        android:layout_height="200dp"
+        android:layout_weight="60"
         android:gravity="center"
         android:background="@color/bgcolor"
         android:orientation="vertical">
@@ -20,7 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="역"
-            android:textSize="30dp">
+            android:textSize="30dp"
+            android:layout_marginBottom="20dp">
         </TextView>
         <ImageView
             android:layout_width="100dp"
@@ -33,41 +34,41 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="25"
+        android:layout_weight="20"
         android:orientation="horizontal"
-        android:background="@drawable/border_bottom">
+        android:background="@drawable/border_thick">
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_weight="20"
             android:background="@color/bggray"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="1dp">
+            android:layout_marginTop="5dp">
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:src="@drawable/logo2"
                 android:scaleType="fitXY">
             </ImageView>
         </LinearLayout>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="80"
             android:orientation="vertical"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center">
             <LinearLayout
+                android:id="@+id/asc_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="20dp">
                 <TextView
                     android:id="@+id/ascTitle1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginBottom="10dp"
                     android:text="ascTitle"
-                    android:textSize="30dp">
+                    android:textSize="25dp">
                 </TextView>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -75,8 +76,9 @@
                     android:gravity="center"
                     android:orientation="horizontal">
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:id="@+id/ascimg1"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src="@drawable/train">
                     </ImageView>
                     <TextView
@@ -85,21 +87,22 @@
                         android:layout_height="wrap_content"
                         android:text="9/10"
                         android:textSize="20dp"
-                        android:layout_weight="30"
-                        android:layout_marginLeft="10dp">
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
                     </TextView>
                     <TextView
                         android:id="@+id/ascArrive1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="1개 역전"
-                        android:textSize="20dp"
-                        android:layout_weight="40"
+                        android:textSize="15dp"
+                        android:singleLine="false"
                         android:layout_marginLeft="10dp">
                     </TextView>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/asc_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -107,9 +110,9 @@
                     android:id="@+id/ascTitle2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginBottom="10dp"
                     android:text="ascTitle"
-                    android:textSize="30dp">
+                    android:textSize="25dp">
                 </TextView>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -117,8 +120,8 @@
                     android:gravity="center"
                     android:orientation="horizontal">
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src="@drawable/train">
                     </ImageView>
                     <TextView
@@ -127,17 +130,17 @@
                         android:layout_height="wrap_content"
                         android:text="9/10"
                         android:textSize="20dp"
-                        android:layout_weight="30"
-                        android:layout_marginLeft="10dp">
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
                     </TextView>
                     <TextView
                         android:id="@+id/ascArrive2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="1개 역전"
-                        android:textSize="20dp"
-                        android:layout_weight="40"
-                        android:layout_marginLeft="10dp">
+                        android:textSize="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:singleLine="false">
                     </TextView>
                 </LinearLayout>
             </LinearLayout>
@@ -147,38 +150,41 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="25"
-        android:orientation="horizontal">
+        android:layout_weight="20"
+        android:orientation="horizontal"
+        android:background="@drawable/border_slim">
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_weight="20"
-            android:background="@color/bggray">
+            android:background="@color/bggray"
+            android:layout_marginTop="3dp">
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:src="@drawable/logo2"
                 android:scaleType="fitXY">
             </ImageView>
         </LinearLayout>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="80"
             android:orientation="vertical"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center">
             <LinearLayout
+                android:id="@+id/desc_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingBottom="20dp"
                 android:orientation="vertical">
                 <TextView
                     android:id="@+id/descTitle1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginBottom="10dp"
                     android:text="ascTitle"
-                    android:textSize="30dp">
+                    android:textSize="25dp">
                 </TextView>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -186,8 +192,8 @@
                     android:gravity="center"
                     android:orientation="horizontal">
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src="@drawable/train">
                     </ImageView>
                     <TextView
@@ -196,21 +202,22 @@
                         android:layout_height="wrap_content"
                         android:text="9/10"
                         android:textSize="20dp"
-                        android:layout_weight="30"
-                        android:layout_marginLeft="10dp">
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
                     </TextView>
                     <TextView
                         android:id="@+id/descArrive1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="1개 역전"
-                        android:textSize="20dp"
-                        android:layout_weight="40"
-                        android:layout_marginLeft="10dp">
+                        android:textSize="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:singleLine="false">
                     </TextView>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/desc_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -218,9 +225,9 @@
                     android:id="@+id/descTitle2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginBottom="10dp"
                     android:text="ascTitle"
-                    android:textSize="30dp">
+                    android:textSize="25dp">
                 </TextView>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -228,8 +235,8 @@
                     android:gravity="center"
                     android:orientation="horizontal">
                     <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:src="@drawable/train">
                     </ImageView>
                     <TextView
@@ -238,17 +245,17 @@
                         android:layout_height="wrap_content"
                         android:text="9/10"
                         android:textSize="20dp"
-                        android:layout_weight="30"
-                        android:layout_marginLeft="10dp">
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
                     </TextView>
                     <TextView
                         android:id="@+id/descArrive2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="1개 역전"
-                        android:textSize="20dp"
-                        android:layout_weight="40"
-                        android:layout_marginLeft="10dp">
+                        android:textSize="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:singleLine="false">
                     </TextView>
                 </LinearLayout>
             </LinearLayout>

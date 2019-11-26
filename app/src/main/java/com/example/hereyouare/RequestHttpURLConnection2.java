@@ -18,14 +18,13 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-public class RequestHttpURLConnection extends AsyncTask<String, Void, ArrayList<HashMap>> { //시작파라미터, 진행상태, 리턴타입
+public class RequestHttpURLConnection2 extends AsyncTask<String, Void, JSONObject> { //시작파라미터, 진행상태, 리턴타입
 
-    ArrayList<HashMap> jsonList = new ArrayList<>(); //return 해줄 열차 정보들
+    JSONObject jsonObject= new JSONObject(); //return 해줄 열차 정보들
 
     @Override
-    protected void onPostExecute(ArrayList<HashMap> result) {
+    protected void onPostExecute(JSONObject result) {
         super.onPostExecute(result);
 
         //mTextViewResult.setText(result);
@@ -35,7 +34,7 @@ public class RequestHttpURLConnection extends AsyncTask<String, Void, ArrayList<
 
 
     @Override
-    protected ArrayList<HashMap> doInBackground(String... params) {
+    protected JSONObject doInBackground(String... params) {
         URL url = null;
         try {
             String station = params[0];
@@ -80,26 +79,13 @@ public class RequestHttpURLConnection extends AsyncTask<String, Void, ArrayList<
 
 
                 // tmap server에서 받아온 경로탐색 json파일 parsing
-                JSONObject jsonObject = readJsonFromUrl(conn);
+                jsonObject = readJsonFromUrl(conn);
                 Log.d("connection", jsonObject.toString());
-
-
-                if(actNum.equals("a1")){
-                    jsonList = jsonListParser1(jsonObject);
-                    Log.d("connection", jsonList.toString());
-                }else if(actNum.equals("a2")){
-                    jsonList = jsonListParser2(jsonObject);
-                    //jsonListParser2(jsonObject);
-                    Log.d("connection", jsonList.toString());
-                }else{
-                    jsonListParser3(jsonObject);
-                    //Log.d("connection", jsonList.toString());
-                }
 
                 // 닫기
                 os.close();
                 //return jsonList;
-                return jsonList;
+                return jsonObject;
 
             } catch (
                     MalformedURLException e) {
@@ -153,97 +139,6 @@ public class RequestHttpURLConnection extends AsyncTask<String, Void, ArrayList<
     }
 
 
-    public ArrayList<HashMap> jsonListParser1(JSONObject jsonObject) {
-
-        String ascTitle;
-        String descTitle;
-        String seat1;
-        String seat2;
-
-        ArrayList<HashMap> objList = new ArrayList<>();
-        try {
-            HashMap train = new HashMap();
-            JSONArray trainLineNm = jsonObject.getJSONArray("trainLineNm");
-            JSONObject empty_seat_status = jsonObject.getJSONObject("empty_seat_status");
-
-
-            Log.d("connection", trainLineNm.toString());
-            Log.d("connection", empty_seat_status.toString());
-
-            ascTitle = trainLineNm.get(0).toString();
-            descTitle = trainLineNm.get(1).toString();
-            seat1 = empty_seat_status.get("up").toString();
-            seat2 = empty_seat_status.get("down").toString();
-
-            Log.d("connection", ascTitle);
-            Log.d("connection", descTitle);
-            Log.d("connection", seat1);
-            Log.d("connection", seat2);
-
-
-            train.put("ascTitle", ascTitle);
-            train.put("descTitle", descTitle);
-            train.put("seat1", seat1);
-            train.put("seat2", seat2);
-            objList.add(train);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return objList;
-    }
-
-    public ArrayList<HashMap> jsonListParser2(JSONObject jsonObject) {
-
-        ArrayList<HashMap> objList = new ArrayList<>();
-        try {
-            HashMap asc_trains = new HashMap();
-            HashMap desc_trains = new HashMap();
-
-            int asc_num = Integer.parseInt(jsonObject.getJSONObject("trains_count").get("up").toString());
-            int desc_num = Integer.parseInt(jsonObject.getJSONObject("trains_count").get("down").toString());
-
-            for (int i=0; i<asc_num; i++){
-                Train train;
-                JSONArray trainObj = jsonObject.getJSONObject("trains").getJSONArray("up").getJSONArray(i);
-
-                String num = trainObj.get(0).toString();
-                String title = trainObj.get(1).toString();
-                String arrive = trainObj.get(2).toString();
-
-                String total = jsonObject.getJSONObject("empty_seat_status").getJSONObject("up").getJSONArray("total").get(i).toString();
-                String empty = jsonObject.getJSONObject("empty_seat_status").getJSONObject("up").getJSONArray("empty").get(i).toString();
-                String seat = empty+" / "+total;
-
-                train = new Train(num, title, arrive, seat);
-                asc_trains.put("train"+(i+1),train);
-            }
-
-            for (int j=0; j<desc_num; j++){
-                Train train;
-                JSONArray trainObj = jsonObject.getJSONObject("trains").getJSONArray("down").getJSONArray(j);
-
-                String num = trainObj.get(0).toString();
-                String title = trainObj.get(1).toString();
-                String arrive = trainObj.get(2).toString();
-
-                String total = jsonObject.getJSONObject("empty_seat_status").getJSONObject("down").getJSONArray("total").get(j).toString();
-                String empty = jsonObject.getJSONObject("empty_seat_status").getJSONObject("down").getJSONArray("empty").get(j).toString();
-                String seat = empty+" / "+total;
-
-                train = new Train(num, title, arrive, seat);
-                desc_trains.put("train"+(j+1),train);
-            }
-
-            Log.d("connection", asc_trains.toString());
-            Log.d("connection", desc_trains.toString());
-
-            objList.add(asc_trains);
-            objList.add(desc_trains);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return objList;
-    }
 
     //public ArrayList<HashMap> jsonListParser3(JSONObject jsonObject) {
     public void jsonListParser3(JSONObject jsonObject) {
