@@ -178,8 +178,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String asctitle = asc[0];
 
             descTitle = trainInfo.get(0).get("descTitle").toString();
-            String[] desc = ascTitle.split("-");
+            String[] desc = descTitle.split("-");
             String desctitle = desc[0];
+            Log.i("오잉", desctitle);
 
             seat1 = trainInfo.get(0).get("seat1").toString();
             seat2 = trainInfo.get(0).get("seat2").toString();
